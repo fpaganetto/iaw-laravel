@@ -69,9 +69,9 @@
         </div><!-- /.container-fluid -->
       </nav>
     </div>
-<div class="container-fluid">
+
 @yield('content')
-</div>
+
   <div class="footer-bottom">
     <div class="container">
       <div class="row">
