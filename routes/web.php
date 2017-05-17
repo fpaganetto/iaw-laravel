@@ -12,5 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
 });
+
+Route::get('/readme', function () {
+    return view('readme');
+});
+
+Route::get('/personalizables','PersonalizablesController@json');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

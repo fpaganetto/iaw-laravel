@@ -1,0 +1,56 @@
+html,body{
+  background-image: url('../img/los-santos-nightd.jpg');
+}
+
+.navbar{
+	background-color: black;
+	border-color: black;
+}
+
+.navbar-default .navbar-brand{
+  color: white;
+}
+
+.brillo:after{
+  background: rgba(255, 255, 255, 0.13);
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.13) 0%,
+    rgba(0, 0, 0, 0.13) 77%,
+    rgba(0, 0, 0, 0.5) 92%,
+    rgba(0, 0, 0, 0.0) 100%
+  );
+}
+
+.navbar-default .navbar-nav>li>a{
+  color: white;
+}
+
+.navbar-default{
+  border-color: black;
+}
+
+.panel-default>.panel-heading{
+  background-color: #1f1f1f;
+  color: white;
+}
+
+.btn-default{
+  color: white;
+  background-color: #333;
+}
+
+.carousel-background{
+  background-color: rgba(0,0,0,0.5);
+}
+
+.jumbotron {
+  padding: 0;
+  color: white;
+  background-color: rgb(57, 57, 58);
+}
+
+.footer-bottom{
+  color: white;
+  background-color: black;
+}

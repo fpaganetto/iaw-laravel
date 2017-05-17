@@ -1,0 +1,164 @@
+@font-face {
+  font-family: 'SignPainter';
+  src:  url('../fonts/SignPainter-HouseScript.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Oswald';
+  src:  url('../fonts/Oswald-Light.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Font_Mayus'; /*a name to be used later*/
+    src: url('../fonts/Bebas.ttf'); /*URL to font*/
+    font-weight: bold;
+}
+@font-face{
+  font-family: 'ChaletLondon';
+  src: url('../fonts/ChaletLondonNineteenSixty.ttf');
+}
+html,body {
+  height: 100%;
+  background-color: black;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.navbar {
+  background-color: black;
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: white;
+  border-radius: 0;
+  border-color: black;
+  margin-bottom: 0;
+}
+
+.navbar-default .navbar-brand{
+  position: relative;
+ /* color: white;*/
+  overflow: hidden;
+}
+
+.brillo:after {
+  content: "";
+  position: absolute;
+  top: -110%;
+  left: -210%;
+  width: 200%;
+  height: 200%;
+  opacity: 0;
+  transform: rotate(10deg);
+
+  background: rgba(255, 255, 255, 0.13);
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.13) 0%,
+    rgba(0, 0, 0, 0.13) 77%,
+    rgba(0, 0, 0, 0.5) 92%,
+    rgba(0, 0, 0, 0.0) 100%
+  );
+}
+
+.brillo:hover:after {
+  opacity: 1;
+  top: -30%;
+  left: -30%;
+  transition-property: left, top, opacity;
+  transition-duration: 0.7s, 0.7s, 0.15s;
+  transition-timing-function: ease;
+}
+
+
+.navbar-default .navbar-nav>li>a{
+  color: white;
+}
+
+.nav{
+  font-family: 'Oswald';
+  font-size: 130%;
+}
+
+.navbar-default{
+  border-color: black;
+  border-radius: 0px;
+}
+
+.panel-default{
+  border-radius: 0px;
+}
+
+.sin-margenes {
+  margin: 0px;
+  padding: 0px;
+}
+
+.main-content {
+  margin-top: 100px;
+}
+
+.marca_auto {
+  font-family: SignPainter;
+  font-size: 400%;
+  padding: 20px;
+}
+
+.carousel{
+  margin: 50px;
+}
+
+.mayus {
+  font-family: Font_Mayus;
+}
+.btn-group-vertical {
+  width:100%;
+}
+.btn-personalizar{
+  text-align: left;
+  font-family: ChaletLondon;
+}
+.footer-bottom{
+  color: white;
+  background-color: black;
+  opacity: 0.2;
+  margin-top: 5%
+}
+
+canvas {
+  background-image: url('../img/lsc.jpg');
+  background-size: 100% 100%;
+  width: 100%;
+  height: auto;
+}
+
+.panel-default>.panel-heading{
+  background-color: #1f1f1f;
+  color: white;
+}
+.btn-default{
+  color: white;
+  background-color: #333;
+  /*border-color:*/
+}
+/*.btn-default:hover{
+  color:
+  background-color:
+  border-color
+}*/
+.carousel-background{
+  background-color: rgba(0,0,0,0.5);
+}
+
+.jumbotron {
+  padding: 0;
+  color: white;
+  background-color: rgb(57, 57, 58);
+}
+
+dt {
+  font-size: 130%;
+  font-family: Oswald;
+}
+
+.boton-estilo{
+  cursor:pointer;
+}

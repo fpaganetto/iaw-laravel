@@ -1,0 +1,45 @@
+html,body{
+  background-image: url('../img/los-santos-day.jpg');
+}
+
+.navbar{
+	background-color: white;
+	border-color: white;
+}
+
+.navbar-default .navbar-brand{
+  color: black;
+}
+
+.brillo:after{
+  background: rgba(0, 0, 0, 0.13);
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.13) 0%,
+    rgba(255, 255, 255, 0.13) 77%,
+    rgba(255, 255, 255, 0.5) 92%,
+    rgba(255, 255, 255, 0.0) 100%
+  );
+}
+
+.navbar-default .navbar-nav>li>a{
+  color: black;
+}
+
+.navbar-default{
+  border-color: white;
+}
+
+.list-group-item{
+  background-color: black;
+  color: white;
+}
+
+.carousel-background{
+  background-color: rgba(255,255,255,0.1);
+}
+
+.footer-bottom{
+  color: black;
+  background-color: white;
+}
