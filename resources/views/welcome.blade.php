@@ -51,7 +51,7 @@
           <div class="panel-group" id="accordionOpciones" role="tablist" aria-multiselectable="true">
             </div>
             <div class="btn-group-vertical">
-              <button type="submit" class="btn btn-block btn-recordar" id="recordar" 
+              <button type="submit" class="btn btn-block btn-recordar" id="recordar"
               data-toggle="tooltip" data-placement="top"
               title="Guarda las opciones elegidas, para que al abrir nuevamente el sitio web permanezcan seleccionadas">Recordar</button>
               <button type="submit" class="btn btn-block btn-olvidar" id="olvidar"
@@ -69,3 +69,4 @@
       </div> <!-- row -->
 
       </div><!-- END main-content -->
+@endsection

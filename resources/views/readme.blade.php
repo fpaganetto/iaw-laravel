@@ -20,6 +20,7 @@
       </br>
       <dt>Créditos</dt>
       <dd>Manejo de cookies provisto por <a href="https://www.w3schools.com/js/js_cookies.asp" target="_blank">W3Schools</a></dd>
+      <dd>Librería de <a href="https://github.com/rndme/download" target="_blank">descarga de imágenes</a></dd>
       <dd>Imágenes e inspiración dada por GTA V</dd>
     </dl>
   </div>

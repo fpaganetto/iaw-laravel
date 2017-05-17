@@ -8,6 +8,16 @@ request.responseType = "json";
 request.send();
 request.onload = function() { //lo que ocurre al recibir la respuesta del servidor
   jsonOpciones = request.response;
+
+  var canvas = document.getElementById("imagen-personalizada");
+  var ctx = canvas.getContext("2d");
+  var imageObj = new Image();
+
+  imageObj.onload = function() {//dibujar cuando la imagen esté cargada
+    ctx.drawImage(imageObj, 0, 0, canvas.width, canvas.height);
+  };
+  imageObj.src = "app/img/cero.png";
+
   cargarOpciones(jsonOpciones);
   cargarRecordado();
 }
@@ -144,8 +154,13 @@ $("#olvidar").click(function eraseCookie(/*name*/) {
 })
 
 $("#descargar").click(function() {
-  this.setAttribute("download","archive.png");
+/*  this.setAttribute("download","MiAdder.png");
   var canvas = document.getElementById("imagen-personalizada");
-  var data = canvas.toDataURL();
-  window.location.href = data.replace("image/png", "image/octet-stream");
+  var data = canvas.toDataURL("image/png");
+  data = data.replace(/^data:image\/[^;]*//*, 'data:application/octet-stream');
+  window.location.href = data.replace(/^data:application\/octet-stream/, "data:application/octet-stream;headers=Content-Disposition%3A%20attachment%3B%20filename=MiAdder.png");
+  this.href = data; */
+  var canvas = document.getElementById("imagen-personalizada");
+  var data = canvas.toDataURL("image/png");
+  download(data, "MiAdder.png", "image/png");
 })
