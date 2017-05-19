@@ -23,3 +23,6 @@ Route::get('/personalizables','PersonalizablesController@json');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/redirect/{servicio}','Auth\OAuthController@redirect');
+Route::get('/callback/{servicio}','Auth\OAuthController@callback');

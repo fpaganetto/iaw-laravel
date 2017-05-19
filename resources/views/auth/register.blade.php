@@ -1,6 +1,8 @@
 @extends('layouts.adderlayout')
 
 @section('content')
+<link id="css" href="css/boostrap-social.css" rel="stylesheet">
+
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -62,9 +64,19 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                            
+                                <button type="submit" class="btn btn-block"">
                                     Register
                                 </button>
+
+                                <a class="btn btn-block btn-social btn-facebook" href="{{ url('/redirect/facebook') }}"">
+                                <span class="fa fa-facebook"></span> Iniciar con Facebook
+                                </a>
+
+                                <a class="btn btn-block btn-social btn-github" href="{{ url('/redirect/github') }}"">
+                                <span class="fa fa-github"></span> Iniciar con Github
+                                </a>
+
                             </div>
                         </div>
                     </form>
