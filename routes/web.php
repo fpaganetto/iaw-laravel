@@ -26,3 +26,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/redirect/{servicio}','Auth\OAuthController@redirect');
 Route::get('/callback/{servicio}','Auth\OAuthController@callback');
+
+Route::get('/admin', function () {
+    return view('admin');
+})->middleware('admin');

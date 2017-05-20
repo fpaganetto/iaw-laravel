@@ -16,8 +16,8 @@ class SocialAccountService{
             'name'     => $user->name,
             'email'    => $user->email,
             'password' => bcrypt($user->token),
-            /*'provider' => $provider,
-            'provider_id' => $user->id*/
+            'provider' => $provider,
+            //'provider_id' => $user->id
         ]);
     }
 }
