@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html>
-<body>
+@extends('layouts.adderlayout')
 
-<h1>Hola!</h1>
+@section('content')
 
 <p>Soy administrador, ya puedo quemar mi título de secundario.</p>
 
-</body>
-</html>
+@endsection

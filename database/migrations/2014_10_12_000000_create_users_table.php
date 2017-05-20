@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('provider'); //Proveedor: Facebook, Github, Adder, etc.
-            $table->boolean('admin')->default('false'); //Si es o no admin
+            $table->boolean('admin')->default('0'); //Si es o no admin
             $table->rememberToken();
             $table->timestamps();
         });

@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Auth;
+use Illuminate\Http\Response;
 
 class Admin{
     /**
@@ -17,6 +18,6 @@ class Admin{
         if ( Auth::check() && Auth::user()->isAdmin() ){
             return $next($request);
         }
-        else return redirect('home'); //XXX
+        else return new Response(view('/fuera')); //XXX
     }
 }
