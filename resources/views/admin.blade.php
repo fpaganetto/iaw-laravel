@@ -31,5 +31,26 @@
 
     <a href="/user/create" class="btn btn-success">Agregar menú personalizable</a>
 
+    {{-- Voy a tener una tabla por cada elemento personalizable --}}
+	@foreach ($elementos as $nombre => $elemento)
+        <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>{{$nombre}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($elemento as $e)
+                <tr>
+                    <td>{{ $e->valor }}</td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+    <a href="/user/create" class="btn btn-success">Agregar {{$nombre}}</a>
+   @endforeach
+
 </div>
 </body>
