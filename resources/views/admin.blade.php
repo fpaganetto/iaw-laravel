@@ -1,13 +1,14 @@
 
 <html lang="es">
 <head>
+	<title>Administrador</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 
 <body>
-<div class="col-lg-10 col-lg-offset-1">
+<div class="container col-lg-8 col-lg-offset-2">
 
-    <h1><i class="fa fa-users"></i> Menu admin <a href="/logout" class="btn btn-default pull-right">Logout</a></h1>
+    <h1><i class="fa fa-users"></i> Menu admin Adder<a href="/logout" class="btn btn-warning pull-right">Logout</a></h1>
 
     <div class="table-responsive">
         <table class="table table-bordered table-striped">
@@ -34,7 +35,7 @@
     {{-- Voy a tener una tabla por cada elemento personalizable --}}
 	@foreach ($elementos as $nombre => $elemento)
         <div class="table-responsive">
-        <table class="table table-bordered table-striped">
+        <table class="table table-bordered .table-hover">
             <thead>
                 <tr>
                     <th>{{$nombre}}</th>
@@ -43,7 +44,12 @@
             <tbody>
                 @foreach ($elemento as $e)
                 <tr>
-                    <td>{{ $e->valor }}</td>
+                    <td>
+                    	{{ $e->valor }}
+                    	<a href="/user/edit" class="btn btn-danger pull-right" style="margin-right: 3px;">Eliminar</a>
+                        <a href="/user/edit" class="btn btn-info pull-right" style="margin-right: 3px;">Editar</a>
+                    </td>
+
                 </tr>
                 @endforeach
             </tbody>
