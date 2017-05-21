@@ -6,15 +6,17 @@
 
 <body>
 	<div class="container col-lg-6 col-lg-offset-3">
-		<h1>Escriba el nombre de la nueva categoría</h1>
-		{!! Form::open(['url' => 'crearCategoria']) !!}
+		<h1>Esta editando el nombre de la categoría<strong> {{$categoria}}</strong></h1>
+		{!! Form::open(['url' => 'editarCategoria']) !!}
+			<input type="hidden" name="categoriaViejo" value={{$categoria}}>
+
 			<div class= "form-group">
-				{!! Form::label('nombre','Nombre cateogría: ') !!}
-				{!! Form::text('nombre', null, ['class' => 'form-control']) !!}
+				{!! Form::label('nombre','Reemplazar nombre de la categoría: ') !!}
+				{!! Form::text('categoriaNuevo', null, ['class' => 'form-control']) !!}
 			</div>
 
 			<div class= "form-group">
-				{!! Form::submit('Agregar', ['class' => 'btn btn-primary form-control']) !!}
+				{!! Form::submit('Editar categoría', ['class' => 'btn btn-primary form-control']) !!}
 			</div>
 		{!! Form::close() !!}
 	</div>

@@ -6,15 +6,21 @@
 
 <body>
 	<div class="container col-lg-6 col-lg-offset-3">
-		<h1>Escriba el nombre de la nueva categoría</h1>
-		{!! Form::open(['url' => 'crear']) !!}
+		<h1>Agregando elemento en <strong>{{$categoria}}</strong></h1>
+		{!! Form::open(['url' => 'crearElemento', 'files' => true, 'enctype' => "multipart/form-data"]) !!}
+			<input type="hidden" name="categoria" value={{$categoria}}>
+
 			<div class= "form-group">
-				{!! Form::label('nombre','Nombre cateogría: ') !!}
+				{!! Form::label('nombre','Nombre del nuevo elemento: ') !!}
 				{!! Form::text('nombre', null, ['class' => 'form-control']) !!}
 			</div>
 
+			<div class="btn btn-default btn-file">
+			{!! Form::file('image') !!}
+			</div>
+
 			<div class= "form-group">
-				{!! Form::submit('Agregar', ['class' => 'btn btn-primary form-control']) !!}
+				{!! Form::submit('Agregar elemento', ['class' => 'btn btn-primary form-control']) !!}
 			</div>
 		{!! Form::close() !!}
 	</div>

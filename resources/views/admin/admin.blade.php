@@ -26,7 +26,11 @@
                 <tr>
                     <td>{{ $personalizable->tablas }}
                     <button type="submit" name = "eliminar" value= {{ $personalizable->tablas }} class="btn btn-danger pull-right">Eliminar</button>
+
+                    <a href="/editarCategoria/{{$personalizable->tablas}}" 
+                    class="btn btn-info pull-right" style="margin-right: 3px;">Editar</a>
                     </td>
+                    
                 </tr>
                 @endforeach
             </tbody>
@@ -54,13 +58,15 @@
                         <button type="submit" data-lala="value2" 
                         name = "eliminar" value= {{$e->valor}} class="btn btn-danger pull-right">
                         Eliminar</button>
-                        <a href="/user/edit" class="btn btn-info pull-right" style="margin-right: 3px;">Editar</a>
+                        
+                        <a href="/editarElemento/{{$nombre}}/{{$e->valor}}"
+                         class="btn btn-info pull-right" style="margin-right: 3px;">Editar</a>
                     </td>
 
                 </tr>
                 @endforeach
             </tbody>
-        <a href="/user/create" class="btn btn-success">Agregar {{$nombre}}</a>
+        <a href="/crearElemento/{{$nombre}}" class="btn btn-success">Agregar {{$nombre}}</a>
         </table>
     </div>
     {!! Form::close() !!}
