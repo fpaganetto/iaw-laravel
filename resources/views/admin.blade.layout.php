@@ -1,13 +1,10 @@
+@extends('layouts.adderlayout')
 
-<html lang="es">
-<head>
-	<title>Administrador</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    
-</head>
-
+@section('content')
 <body>
-<div class="container col-lg-8 col-lg-offset-2">
+<link id="css" href="css/styleAdmin.css" rel="stylesheet">
+
+<div class="container col-lg-8 col-lg-offset-2" style="background: white">
 
     <h1><i class="fa fa-users"></i> Menu admin Adder<a href="/logout" class="btn btn-warning pull-right">Logout</a></h1>
 
@@ -59,6 +56,6 @@
     </div>
     <a href="/user/create" class="btn btn-success">Agregar {{$nombre}}</a>
    @endforeach
-
 </div>
-</body>
+
+@endsection

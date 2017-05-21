@@ -72,21 +72,23 @@
 
 @yield('content')
 
-  <div class="footer-bottom">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-            © 2017 Truffade Motors |
-            <a href="readme"> Readme </a>
+  <div class="container-fluid">
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+              © 2017 Truffade Motors |
+              <a href="readme"> Readme </a>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 pull-right">
+             <div class="pull-right boton-estilo">
+             <a id="est1">Noctis</a> | <a id="est2">Lucis</a>
+             </div>
+          </div>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 pull-right">
-           <div class="pull-right boton-estilo">
-           <a id="est1">Noctis</a> | <a id="est2">Lucis</a>
-           </div>
-        </div>
-      </div>
-    </div> <!--fin container -->
-    </div> <!--fin footer -->
+      </div> <!--fin container -->
+      </div> <!--fin footer -->
+    </div>
 
     <script
       src="https://code.jquery.com/jquery-3.2.1.min.js"
