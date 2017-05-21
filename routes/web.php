@@ -42,17 +42,18 @@ Route::get('/compartido/{idURL}', function ($idURL) {
 	return Redirect::action("WelcomeController@welcome", array('idURL' => $idURL));
 });
 
-Route::get('/admin', function () {
-    return view('admin',['personalizables' => \App\Personalizables::all(), 'elementos' => \App\Personalizables::elementos()]);
-})->middleware('admin');
-
-Route::get('/prueba', function () {
-	dd(\App\Personalizables::elementos());
-});
-
 Route::get('/logout', function () {
 	Auth::logout();
 	return redirect('/');
 });
 
-Route::post('/borrar/{categoria}/{elemento}','ABMController@borrar');
+Route::get('/admin', function () {
+    return view('admin/admin',['personalizables' => \App\Personalizables::all(), 'elementos' => \App\Personalizables::elementos()]);
+})->middleware('admin');
+
+Route::get('/admin/crearCategoria', function () {
+    return view('admin/crearCategoria');
+})->middleware('admin');
+
+Route::post('/crear','ABMController@crearCategoria')->middleware('admin');
+Route::post('/borrar/{categoria}/{elemento}','ABMController@borrar')->middleware('admin');

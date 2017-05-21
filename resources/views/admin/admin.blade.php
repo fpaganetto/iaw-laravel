@@ -1,10 +1,13 @@
-@extends('layouts.adderlayout')
 
-@section('content')
+<html lang="es">
+<head>
+	<title>Administrador</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+</head>
+
 <body>
-<link id="css" href="css/styleAdmin.css" rel="stylesheet">
-
-<div class="container col-lg-8 col-lg-offset-2" style="background: white">
+<div class="container col-lg-8 col-lg-offset-2">
 
     <h1><i class="fa fa-users"></i> Menu admin Adder<a href="/logout" class="btn btn-warning pull-right">Logout</a></h1>
 
@@ -24,11 +27,9 @@
                 </tr>
                 @endforeach
             </tbody>
-
+        <a href="/admin/crearCategoria" class="btn btn-success">Agregar menú personalizable</a>
         </table>
     </div>
-
-    <a href="/user/create" class="btn btn-success">Agregar menú personalizable</a>
 
     {{-- Voy a tener una tabla por cada elemento personalizable --}}
 	@foreach ($elementos as $nombre => $elemento)
@@ -52,10 +53,10 @@
                 </tr>
                 @endforeach
             </tbody>
+        <a href="/user/create" class="btn btn-success">Agregar {{$nombre}}</a>
         </table>
     </div>
-    <a href="/user/create" class="btn btn-success">Agregar {{$nombre}}</a>
    @endforeach
-</div>
 
-@endsection
+</div>
+</body>

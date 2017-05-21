@@ -14,7 +14,7 @@ class CreatePersonalizablesTable extends Migration
     public function up()
     {
         Schema::create('personalizables', function (Blueprint $table) {
-            $table->string('tablas');
+            $table->string('tablas')->unique();
             });
             /*
             En cada fila iria el nombre del elemento personalizable, para luego consultar cada tabla por separado

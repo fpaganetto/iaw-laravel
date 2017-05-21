@@ -14,7 +14,7 @@ class CreatePolarizadosTable extends Migration
     public function up()
     {
         Schema::create('polarizados', function (Blueprint $table) {
-            $table->string('valor');
+            $table->string('valor')->unique();
             });
     }
 

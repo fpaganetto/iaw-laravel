@@ -3,11 +3,11 @@ INSERT INTO personalizables VALUES("llantas");
 INSERT INTO personalizables VALUES("polarizados");
 INSERT INTO personalizables VALUES("motores");
 
-INSERT INTO colores VALUES(DEFAULT, "Amarillo","#F57F17");
-INSERT INTO colores VALUES(DEFAULT, "Verde","#1B5E20");
-INSERT INTO colores VALUES(DEFAULT, "Rojo","#B71C1C");
-INSERT INTO colores VALUES(DEFAULT, "Azul","#0D47A1");
-INSERT INTO colores VALUES(DEFAULT, "Cromado","#212121");
+INSERT INTO colores VALUES("Amarillo","#F57F17");
+INSERT INTO colores VALUES("Verde","#1B5E20");
+INSERT INTO colores VALUES("Rojo","#B71C1C");
+INSERT INTO colores VALUES("Azul","#0D47A1");
+INSERT INTO colores VALUES("Cromado","#212121");
 
 INSERT INTO llantas VALUES("Shadow");
 INSERT INTO llantas VALUES("Flare");

@@ -14,7 +14,7 @@ class CreateLlantasTable extends Migration
     public function up()
     {
         Schema::create('llantas', function (Blueprint $table) {
-            $table->string('valor');
+            $table->string('valor')->unique();
             });
     }
 

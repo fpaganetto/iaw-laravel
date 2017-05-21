@@ -14,8 +14,7 @@ class CreateColoresTable extends Migration
     public function up()
     {
         Schema::create('colores', function (Blueprint $table) {
-            $table->increments('id')->unique();
-            $table->string('valor');
+            $table->string('valor')->unique();
             $table->string('hexa');
             });
     }

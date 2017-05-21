@@ -14,7 +14,7 @@ class CreateMotoresTable extends Migration
     public function up()
     {
         Schema::create('motores', function (Blueprint $table) {
-            $table->string('valor');
+            $table->string('valor')->unique();
             });
     }
 
