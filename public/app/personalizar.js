@@ -214,15 +214,17 @@ $("#compartir").click(function() {
     url:'/compartir',
     headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}, //obtiene el CSRF encontrado como meta tag en la página de donde se invoca esta función
     data: {"strData": str_json},
-    success:function(data){
-       window.alert("¡Listo!\n\nCopia este enlace para compartir con tus amigos\n\n"+window.location.href+"compartido/"+idURL);
-    }
+    //success:function(data){
+    //   window.prompt("¡Listo!\n\nCopia este enlace para compartir con tus amigos", window.location.href+"compartido/"+idURL);
+    //}
   });
 
-
-
+  crearAlertaCompartir(idURL);
 })
 
+  function crearAlertaCompartir(idURL){
+    $('#alert-compartir').html('<div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>¡Listo!</strong> Copia este enlace para compartir con tus amigos! <u>'+window.location.href+'compartido/'+idURL+'</u></div>');
+  }
 
 
 // ### fuente: https://gist.github.com/gordonbrander/2230317#file-id-js

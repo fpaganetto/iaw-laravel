@@ -73,5 +73,6 @@
         </div>
       </div> <!-- row -->
 
-      </div><!-- END main-content -->
+<div id='alert-compartir'></div>
+
 @endsection

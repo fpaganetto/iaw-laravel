@@ -54,8 +54,5 @@ Route::get('/logout', function () {
 	Auth::logout();
 	return redirect('/');
 });
-<<<<<<< HEAD
 
 Route::post('/borrar/{categoria}/{elemento}','ABMController@borrar');
-=======
->>>>>>> 4427fc34ac20ea44be06c17a6795834677a97b91
