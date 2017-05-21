@@ -20,6 +20,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <meta name="theme-color" content="#000000"/> <!-- chrome omnibar color -->
+    <meta name="csrf-token" content="{{ csrf_token() }}" /> <!-- Seguridad laravel -->
   </head>
   <body>
 

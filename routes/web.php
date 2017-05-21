@@ -11,9 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-	return view('welcome');
+/*Route::get('/', function () {
+	return view('welcome', ['idURL' => ""]);
+});*/
+
+/* ESTO ROMPE TODO
+Route::get('/{idURL}', function ($idURL) {
+	return view('welcome', ['idURL' => $idURL]);
 });
+*/
+
+Route::get('/', "WelcomeController@welcome");
 
 Route::get('/readme', function () {
     return view('readme');
@@ -26,3 +34,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/redirect/{servicio}','Auth\OAuthController@redirect');
 Route::get('/callback/{servicio}','Auth\OAuthController@callback');
+
+Route::post('/compartir','CompartirController@registrar');
+Route::post('/obtener','CompartirController@obtenerJSON');
+
+Route::get('/compartido/{idURL}', function ($idURL) {
+	return Redirect::action("WelcomeController@welcome", array('idURL' => $idURL));
+});

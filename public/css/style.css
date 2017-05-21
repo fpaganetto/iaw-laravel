@@ -195,3 +195,17 @@ dt {
   background-color: #3C0000;
   color: white;
 }
+
+
+.btn-compartir{
+  background-color: ##4286f4;
+  color: white;
+}
+.btn-compartir:hover{
+  background-color: ##38ede4;
+  color: white;
+}
+.btn-compartir:active{
+  background-color: ##2330bc;
+  color: white;
+}

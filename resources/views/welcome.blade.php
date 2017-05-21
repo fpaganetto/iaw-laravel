@@ -1,6 +1,8 @@
 @extends('layouts.adderlayout')
 
 @section('content')
+      <input type="hidden" name="idURL" id="idURL" value="{{ $idURL }}""/>
+
       <!-- Carrousell -->
       <div class="container-fluid carousel-background">
         <div class="row col-md-10 col-md-offset-1 centered">
@@ -57,6 +59,9 @@
               <button type="submit" class="btn btn-block btn-olvidar" id="olvidar"
               data-toggle="tooltip" data-placement="top"
               title="Elimina la cookie que memoriza las opciones">Olvidar</button>
+              <button type="submit" class="btn btn-block btn-compartir" id="compartir"
+              data-toggle="tooltip" data-placement="top"
+              title="¡Comparte tu Adder con tus amigos!">Compartir</button>
               <button type="submit" class="btn btn-block btn-descargar" id="descargar"
               data-toggle="tooltip" data-placement="top"
               title="Descarga una imagen del modelo del auto generado">Descargar</button>
