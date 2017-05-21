@@ -41,3 +41,16 @@ Route::post('/obtener','CompartirController@obtenerJSON');
 Route::get('/compartido/{idURL}', function ($idURL) {
 	return Redirect::action("WelcomeController@welcome", array('idURL' => $idURL));
 });
+
+Route::get('/admin', function () {
+    return view('admin',['personalizables' => \App\Personalizables::all(), 'elementos' => \App\Personalizables::elementos()]);
+})->middleware('admin');
+
+Route::get('/prueba', function () {
+	dd(\App\Personalizables::elementos());
+});
+
+Route::get('/logout', function () {
+	Auth::logout();
+	return redirect('/');
+});

@@ -25,6 +25,17 @@ class Personalizables extends Model
 		}
 	    return compact("opciones",$opciones);
 	}
+	/**
+	@return Retorna los elementos personalizables que existen declarados en la tabla de personalizables
+	**/
+	public static function elementos(){
+		$toReturn = [];
+		$personalizables = DB::table('personalizables')->pluck("tablas");
+		foreach ($personalizables as $p){
+			$toReturn[$p] = DB::table($p)->get();
+		}
+		return $toReturn;
+	}
 }
 
 class Opcion

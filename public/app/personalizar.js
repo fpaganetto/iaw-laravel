@@ -215,7 +215,7 @@ $("#compartir").click(function() {
     headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}, //obtiene el CSRF encontrado como meta tag en la página de donde se invoca esta función
     data: {"strData": str_json},
     success:function(data){
-       window.alert("¡Listo!\n\nCopia este enlace para compartir con tus amigos\n\n"+window.location.href+"/compartido/"+idURL);
+       window.alert("¡Listo!\n\nCopia este enlace para compartir con tus amigos\n\n"+window.location.href+"compartido/"+idURL);
     }
   });
 
