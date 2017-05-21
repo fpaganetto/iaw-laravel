@@ -65,5 +65,5 @@ Route::post('/crearElemento','ABMController@crearElemento')->middleware('admin')
 Route::post('/eliminarCategoria','ABMController@eliminarCategoria')->middleware('admin');
 Route::post('/eliminarElemento','ABMController@eliminarElemento')->middleware('admin');
 
-
+Route::post('/editarCategoria','ABMController@editarCategoria')->middleware('admin');
 Route::post('/editarElemento','ABMController@editarElemento')->middleware('admin');

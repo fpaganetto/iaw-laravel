@@ -83,7 +83,7 @@ class ABMController extends Controller{
     Retorna una vista donde se muestra un menu para editar la categoría
     **/
     public function editarCategoriaVista($categoria){
-        return view('admin/editarCategoria', ['categoria' => $categoria, 'vista' => $vista]);
+        return view('admin/editarCategoria', ['categoria' => $categoria]);
     }
 
     /**
@@ -94,6 +94,19 @@ class ABMController extends Controller{
         $nombreViejo = Request::get('nombreViejo');
         $nombreNuevo = Request::get('nombreNuevo');
         DB::table($categoria)->where('valor', $nombreViejo)->update(['valor' => $nombreNuevo]);
+
+        return Redirect::to('admin');
+    }
+
+    /**
+     XXX Falta renombrar el directorio
+    */
+    public function editarCategoria(){
+        $categoriaViejo = Request::get('categoriaViejo');
+        $categoriaNuevo = Request::get('categoriaNuevo');
+        
+        DB::table("personalizables")->where('tablas', $categoriaViejo)->update(['tablas' => $categoriaNuevo]);
+        Schema::rename($categoriaViejo, $categoriaNuevo);
 
         return Redirect::to('admin');
     }

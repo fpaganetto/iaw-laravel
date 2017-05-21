@@ -26,7 +26,11 @@
                 <tr>
                     <td>{{ $personalizable->tablas }}
                     <button type="submit" name = "eliminar" value= {{ $personalizable->tablas }} class="btn btn-danger pull-right">Eliminar</button>
+
+                    <a href="/editarCategoria/{{$personalizable->tablas}}" 
+                    class="btn btn-info pull-right" style="margin-right: 3px;">Editar</a>
                     </td>
+                    
                 </tr>
                 @endforeach
             </tbody>
