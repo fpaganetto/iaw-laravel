@@ -60,7 +60,7 @@
                 </tr>
                 @endforeach
             </tbody>
-        <a href="/user/create" class="btn btn-success">Agregar {{$nombre}}</a>
+        <a href="/crearElemento/{{$nombre}}" class="btn btn-success">Agregar {{$nombre}}</a>
         </table>
     </div>
     {!! Form::close() !!}

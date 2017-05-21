@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Request;
 use DB;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Storage as Storage;
 use Redirect;
 
 class ABMController extends Controller{
@@ -48,5 +49,26 @@ class ABMController extends Controller{
 	    	//Caso en que por ejemplo exista la tabla o la categoria declarada en la tabla de personalizables
 	    	return Redirect::to('admin');
 	    }
+    }
+
+    public function categoriaVista($categoria){
+    	return view('admin/crearElemento', ['categoria' => $categoria]);
+    }
+
+    public function crearElemento(){
+    	if(Request::hasFile('file')){
+    		$file_content = Request::get('file');
+    		$categoria = Request::get('categoria');
+    		$nombreNuevo = Request::get('nombre');
+
+    		//Guarda el archivo
+    		Storage::disk('app')->put($nombreNuevo.".png", $file_content);
+
+    		//Agrega en la bd el elemento nuevo
+    		DB::table($categoria)->insert(['valor' => $nombreNuevo]);
+    	}
+    	else dd("No hay archivo");
+
+    	//return Redirect::to('admin');
     }
 }

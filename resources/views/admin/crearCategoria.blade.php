@@ -7,7 +7,7 @@
 <body>
 	<div class="container col-lg-6 col-lg-offset-3">
 		<h1>Escriba el nombre de la nueva categoría</h1>
-		{!! Form::open(['url' => 'crear']) !!}
+		{!! Form::open(['url' => 'crearCategoria']) !!}
 			<div class= "form-group">
 				{!! Form::label('nombre','Nombre cateogría: ') !!}
 				{!! Form::text('nombre', null, ['class' => 'form-control']) !!}
