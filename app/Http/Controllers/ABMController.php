@@ -9,8 +9,23 @@ use Illuminate\Support\Facades\Schema;
 use Redirect;
 
 class ABMController extends Controller{
-    public function borrar($categoria, $elemento){
-		DB::table($categoria)->where('valor', '=', $elemento)->delete();
+    public function eliminarCategoria(){
+    	$nombre = Request::get('eliminar');
+		
+		DB::table("personalizables")->where('tablas', '=', $nombre)->delete();
+		Schema::dropIfExists($nombre);
+
+		return Redirect::to('admin');
+    }
+
+    public function eliminarElemento(){
+
+    	$categoria = Request::get('categoria');
+    	$nombre = Request::get('eliminar');
+		
+		DB::table($categoria)->where('valor', '=', $nombre)->delete();
+
+		return Redirect::to('admin');
     }
 
     public function crearCategoria(){

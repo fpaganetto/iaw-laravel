@@ -56,4 +56,5 @@ Route::get('/admin/crearCategoria', function () {
 })->middleware('admin');
 
 Route::post('/crear','ABMController@crearCategoria')->middleware('admin');
-Route::post('/borrar/{categoria}/{elemento}','ABMController@borrar')->middleware('admin');
+Route::post('/eliminarCategoria','ABMController@eliminarCategoria')->middleware('admin');
+Route::post('/eliminarElemento','ABMController@eliminarElemento')->middleware('admin');

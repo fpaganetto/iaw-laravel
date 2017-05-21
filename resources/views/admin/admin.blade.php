@@ -11,6 +11,7 @@
 
     <h1><i class="fa fa-users"></i> Menu admin Adder<a href="/logout" class="btn btn-warning pull-right">Logout</a></h1>
 
+    {!! Form::open(['url' => 'eliminarCategoria']) !!}
     <div class="table-responsive">
         <table class="table table-bordered table-striped">
 
@@ -23,16 +24,20 @@
             <tbody>
                 @foreach ($personalizables as $personalizable)
                 <tr>
-                    <td>{{ $personalizable->tablas }}</td>
+                    <td>{{ $personalizable->tablas }}
+                    <button type="submit" name = "eliminar" value= {{ $personalizable->tablas }} class="btn btn-danger pull-right">Eliminar</button>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
         <a href="/admin/crearCategoria" class="btn btn-success">Agregar menú personalizable</a>
         </table>
     </div>
+    {!! Form::close() !!}
 
     {{-- Voy a tener una tabla por cada elemento personalizable --}}
 	@foreach ($elementos as $nombre => $elemento)
+    {!! Form::open(['url' => 'eliminarElemento']) !!}
         <div class="table-responsive">
         <table class="table table-bordered table-striped">
             <thead>
@@ -45,8 +50,10 @@
                 <tr>
                     <td>
                     	{{ $e->valor }}
-                    	<a href="/borrar/{{$nombre}}/{{$e->valor}}"
-                         class="btn btn-danger pull-right" style="margin-right: 3px;">Eliminar</a>
+                        <input type="hidden" name="categoria" value={{$nombre}}>
+                        <button type="submit" data-lala="value2" 
+                        name = "eliminar" value= {{$e->valor}} class="btn btn-danger pull-right">
+                        Eliminar</button>
                         <a href="/user/edit" class="btn btn-info pull-right" style="margin-right: 3px;">Editar</a>
                     </td>
 
@@ -56,6 +63,7 @@
         <a href="/user/create" class="btn btn-success">Agregar {{$nombre}}</a>
         </table>
     </div>
+    {!! Form::close() !!}
    @endforeach
 
 </div>
