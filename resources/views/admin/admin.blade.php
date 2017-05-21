@@ -54,7 +54,9 @@
                         <button type="submit" data-lala="value2" 
                         name = "eliminar" value= {{$e->valor}} class="btn btn-danger pull-right">
                         Eliminar</button>
-                        <a href="/user/edit" class="btn btn-info pull-right" style="margin-right: 3px;">Editar</a>
+                        
+                        <a href="/editarElemento/{{$nombre}}/{{$e->valor}}"
+                         class="btn btn-info pull-right" style="margin-right: 3px;">Editar</a>
                     </td>
 
                 </tr>

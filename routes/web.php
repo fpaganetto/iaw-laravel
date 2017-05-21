@@ -56,8 +56,14 @@ Route::get('/admin/crearCategoria', function () {
 })->middleware('admin');
 Route::get('/crearElemento/{categoria}', 'ABMController@categoriaVista')->middleware('admin');
 
+Route::get('/editarElemento/{categoria}/{elemento}', 'ABMController@editarElementoVista')->middleware('admin');
+Route::get('/editarCategoria/{categoria}', 'ABMController@editarCategoriaVista')->middleware('admin');
+
 Route::post('/crearCategoria','ABMController@crearCategoria')->middleware('admin');
 Route::post('/crearElemento','ABMController@crearElemento')->middleware('admin');
 
 Route::post('/eliminarCategoria','ABMController@eliminarCategoria')->middleware('admin');
 Route::post('/eliminarElemento','ABMController@eliminarElemento')->middleware('admin');
+
+
+Route::post('/editarElemento','ABMController@editarElemento')->middleware('admin');

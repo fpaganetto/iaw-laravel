@@ -7,6 +7,7 @@ use Request;
 use DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Storage as Storage;
+use Illuminate\Support\Facades\Input as Input;
 use Redirect;
 
 class ABMController extends Controller{
@@ -56,7 +57,7 @@ class ABMController extends Controller{
     }
 
     public function crearElemento(){
-    	if(Request::hasFile('file')){
+    	if(Input::hasFile('file')){
     		$file_content = Request::get('file');
     		$categoria = Request::get('categoria');
     		$nombreNuevo = Request::get('nombre');
@@ -70,5 +71,30 @@ class ABMController extends Controller{
     	else dd("No hay archivo");
 
     	//return Redirect::to('admin');
+    }
+
+    /**
+    Retorna una vista donde se muestra un menu para editar un elemento
+    **/
+    public function editarElementoVista($categoria, $elemento){
+        return view('admin/editarElemento', ['categoria' => $categoria, 'elemento' => $elemento]);
+    }
+    /**
+    Retorna una vista donde se muestra un menu para editar la categoría
+    **/
+    public function editarCategoriaVista($categoria){
+        return view('admin/editarCategoria', ['categoria' => $categoria, 'vista' => $vista]);
+    }
+
+    /**
+     XXX Falta renombrar el archivo
+    */
+    public function editarElemento(){
+        $categoria = Request::get('categoria');
+        $nombreViejo = Request::get('nombreViejo');
+        $nombreNuevo = Request::get('nombreNuevo');
+        DB::table($categoria)->where('valor', $nombreViejo)->update(['valor' => $nombreNuevo]);
+
+        return Redirect::to('admin');
     }
 }
