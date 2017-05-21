@@ -48,6 +48,23 @@
     </div>
 
     <div class="container main-content">
+      <div class ="row" id="precargados">
+        <div class ="col-lg-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Modelos Precargados</h3>
+            </div>
+            <div class="panel-body">
+              <div class="btn-group-lg" role="group" aria-label="">
+                <a href="/compartido/AOK"><button type="button" class="btn btn-default">AOK</button></a>
+                <a href="/compartido/Big Smoke"><button type="button" class="btn btn-default">Big Smoke</button></a>
+                <a href="/compartido/Crimson Fury"><button type="button" class="btn btn-default">Crimson Fury</button></a>
+                <a href="/compartido/Bling Bling"><button type="button" class="btn btn-default">Bling Bling</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- precargados -->
       <div class="row" id="panel-personalizar">
         <div class="col-lg-4">
           <div class="panel-group" id="accordionOpciones" role="tablist" aria-multiselectable="true">
