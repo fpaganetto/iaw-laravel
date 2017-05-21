@@ -38,6 +38,10 @@ Route::get('/callback/{servicio}','Auth\OAuthController@callback');
 Route::post('/compartir','CompartirController@registrar');
 Route::post('/obtener','CompartirController@obtenerJSON');
 
+Route::get('/recordar','RecordarController@recordar');
+Route::get('/cargarUsuario','RecordarController@cargarUsuario');  //usuario quiere decir que es la personalización registrada por el usuario, no se está hablando del usuario en sí
+Route::post('/olvidarUsuario','RecordarController@olvidarUsuario');
+
 Route::get('/compartido/{idURL}', function ($idURL) {
 	return Redirect::action("WelcomeController@welcome", array('idURL' => $idURL));
 });

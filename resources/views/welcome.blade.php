@@ -1,7 +1,7 @@
 @extends('layouts.adderlayout')
 
 @section('content')
-      <input type="hidden" name="idURL" id="idURL" value="{{ $idURL }}""/>
+      <input type="hidden" name="idURL" id="idURL" value="{{ $idURL }}"/>
 
       <!-- Carrousell -->
       <div class="container-fluid carousel-background">
@@ -73,6 +73,11 @@
               <button type="submit" class="btn btn-block btn-recordar" id="recordar"
               data-toggle="tooltip" data-placement="top"
               title="Guarda las opciones elegidas, para que al abrir nuevamente el sitio web permanezcan seleccionadas">Recordar</button>
+              @if (Auth::check())
+              <button type="submit" class="btn btn-block btn-cargar" id="cargar"
+              data-toggle="tooltip" data-placement="top"
+              title="Carga el diseño guardado por el usuario anteriormente">Cargar</button>
+              @endif
               <button type="submit" class="btn btn-block btn-olvidar" id="olvidar"
               data-toggle="tooltip" data-placement="top"
               title="Elimina la cookie que memoriza las opciones">Olvidar</button>

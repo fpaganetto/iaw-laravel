@@ -16,6 +16,7 @@ class CreateCompartir extends Migration
       Schema::create('compartir', function (Blueprint $table) {
           $table->string('idURL')->unique();
           $table->string('json');
+          $table->string('idUser');
           });
     }
 

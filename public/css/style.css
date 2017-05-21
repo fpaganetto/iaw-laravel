@@ -197,14 +197,24 @@ dt {
 }
 
 .btn-compartir{
-  background-color: ##4286f4;
+  background-color: #4286f4;
   color: white;
 }
 .btn-compartir:hover{
-  background-color: ##38ede4;
+  background-color: #38ede4;
   color: white;
 }
 .btn-compartir:active{
-  background-color: ##2330bc;
+  background-color: #2330bc;
   color: white;
+}
+
+.btn-cargar{
+  background-color: #f1f442;
+}
+.btn-cargar:hover{
+  background-color: #e5ff00;
+}
+.btn-cargar:active{
+  background-color: #eabb00;
 }

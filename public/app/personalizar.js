@@ -15,11 +15,10 @@ request.onload = function() { //lo que ocurre al recibir la respuesta del servid
 
   imageObj.onload = function() {//dibujar cuando la imagen esté cargada
     ctx.drawImage(imageObj, 0, 0, canvas.width, canvas.height);
+    cargarOpciones(jsonOpciones);
+    cargarRecordado();
   };
   imageObj.src = "app/img/cero.png";
-
-  cargarOpciones(jsonOpciones);
-  cargarRecordado();
 }
 
 //Se encarga de poblar el html con las opciones recibidas en el objeto JSON
@@ -102,14 +101,16 @@ function cargarRecordado(){
       data: {"idURL": idURL},
       success:function(data){
         //Se ejecuta al recibir respuesta satisfactoria del servidor
-        console.log("data respuesta:\n");
-        console.log(data[0].json);
-        //cookieAuto = (JSON.parse(data));
-        cookieAuto = JSON.parse(data[0].json);
-        delete cookieAuto["idURL"];
-        console.log("eliminando idurl:\n");
-        console.log(cookieAuto);
-        cargarCookieAuto(cookieAuto);
+        if (data.length != 0) {
+          console.log("data respuesta:\n");
+          console.log(data[0].json);
+          cookieAuto = JSON.parse(data[0].json);
+          delete cookieAuto["idURL"];
+          delete cookieAuto["idUser"];
+          console.log("eliminando idurl:\n");
+          console.log(cookieAuto);
+          cargarCookieAuto(cookieAuto);
+        }
       }
     });
 
@@ -180,16 +181,85 @@ $( "p" ).click(function() { //ya comprobé que este funciona
 
 //manipulación de autoPersonalizado
 $("#recordar").click(function() {
-  if (autoPersonalizado["idURL"] != "") {
-    delete autoPersonalizado["idURL"];  //así no queda ensuciada la cookie con el idurl
-  }
-  setCookie("autoPersonalizado", JSON.stringify(autoPersonalizado), 30); //guardamos el auto como un string en una cookie, válida por 30 días
-  console.log("Personalización registrada")
+  $.ajax({
+    type:'GET',
+    url:'/recordar',
+    success:function(data){
+      console.log("return recordarcontroller: \n");
+      console.log(data);
+      if (data != "") {
+        //caso usuario logueado
+        var idUser = data; //lo retornado por el servidor
+        registrarBD(idUser);
+      }
+      else {
+        //caso usuario visitante
+        setCookie("autoPersonalizado", JSON.stringify(autoPersonalizado), 30); //guardamos el auto como un string en una cookie, válida por 30 días
+      }
+      console.log("Personalización registrada");
+    }
+  });
 });
 
+$("#cargar").click(function() {
+  $.ajax({
+    type:'GET',
+    url:'/recordar',
+    success:function(data) {
+      if (data != "") {
+        //caso usuario logueado
+        var idUser = data;
+        console.log("iduser:\t"); //obtengo id usuario
+        console.log(data);
+        $.ajax({
+          type:'GET',
+          url:'/cargarUsuario',
+          data: {"idUser": idUser},
+          success:function(data) {
+            console.log("data:\t");
+            console.log(data);
+            if (data.length == 0) {
+                window.alert("No hay nada que cargar\n ¡Guarda un diseño primero!");
+            }
+            else {
+              var idURL = data[0].idURL;
+              console.log("idURL:\t");
+              console.log(idURL);
+              window.location.replace("/compartido/"+idURL); //Carga el auto
+            }
+          }
+        });
+      }
+    }
+  });
+})
+
+
+
 $("#olvidar").click(function eraseCookie(/*name*/) {
-    document.cookie = "autoPersonalizado" + '=; Max-Age=0'
-    location.reload(true); //Se actualiza para borrar las cosas
+  $.ajax({
+    type:'GET',
+    url:'/recordar',
+    success:function(data) {
+      if (data != "") {
+        //caso usuario logueado
+        var idUser = data;
+        $.ajax({
+          type:'POST',
+          url:'/olvidarUsuario',
+          headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}, //obtiene el CSRF encontrado como meta tag en la página de donde se invoca esta función
+          data: {"idUser": idUser},
+          success:function(data){
+            window.alert("¡Listo!");
+          }
+        });
+      }
+      else {
+        document.cookie = "autoPersonalizado" + '=; Max-Age=0'
+        location.reload(true); //Se actualiza para borrar las cosas
+      }
+    }
+  })
 })
 
 $("#descargar").click(function() {
@@ -200,11 +270,15 @@ $("#descargar").click(function() {
 
 
 $("#compartir").click(function() {
+  registrarBD("");
+})
+
+function registrarBD(idUser) {
   //generar string hash
   //guardar json en la base de datos, usando el hash como id
-  //mostrar URL por alert al usuario
   var idURL = ID();
   autoPersonalizado["idURL"] = idURL; //agregamos idURL como campo
+  autoPersonalizado["idUser"] = idUser; //vació en caso de visitante, userID en caso de estar logueado
   console.log("Agregado el ID:\n");
   console.log(autoPersonalizado);
   var str_json = JSON.stringify(autoPersonalizado);
@@ -214,17 +288,22 @@ $("#compartir").click(function() {
     url:'/compartir',
     headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}, //obtiene el CSRF encontrado como meta tag en la página de donde se invoca esta función
     data: {"strData": str_json},
-    //success:function(data){
-    //   window.prompt("¡Listo!\n\nCopia este enlace para compartir con tus amigos", window.location.href+"compartido/"+idURL);
-    //}
+    success:function(data){
+      if (idUser == "") {
+        crearAlertaCompartir(idURL);
+      }
+      else {
+        window.alert("¡Listo!");
+      }
+    }
   });
+}
 
-  crearAlertaCompartir(idURL);
-})
+function crearAlertaCompartir(idURL){
+  $('#alert-compartir').html('<div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>¡Listo!</strong> Copia este enlace para compartir con tus amigos! <u>'+window.location.hostname+window.location.pathname+'compartido/'+idURL+'</u></div>');
+}
 
-  function crearAlertaCompartir(idURL){
-    $('#alert-compartir').html('<div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>¡Listo!</strong> Copia este enlace para compartir con tus amigos! <u>'+window.location.href+'compartido/'+idURL+'</u></div>');
-  }
+
 
 
 // ### fuente: https://gist.github.com/gordonbrander/2230317#file-id-js
