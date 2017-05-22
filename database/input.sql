@@ -32,7 +32,7 @@ INSERT INTO motores VALUES("Mejora nivel 2");
 INSERT INTO motores VALUES("Mejora nivel 3");
 INSERT INTO motores VALUES("Mejora nivel 4");
 
-INSERT INTO compartir VALUES("AOK", "{""colores"":""Azul"",""llantas"":""Shadow"",""polarizados"":""Ninguno"",""motores"":""Mejora nivel 1"",""idURL"":""AOK""}", "");
-INSERT INTO compartir VALUES("Big Smoke", "{""colores"":""Verde"",""llantas"":""Flare"",""polarizados"":""Light Smoke"",""motores"":""Mejora nivel 3"",""idURL"":""Big Smoke""}", "");
-INSERT INTO compartir VALUES("Crimson Fury", "{""colores"":""Rojo"",""llantas"":""Slit Six"",""polarizados"":""Limo"",""motores"":""Mejora nivel 4"",""idURL"":""Crimson Fury""}", "");
-INSERT INTO compartir VALUES("Bling Bling", "{""colores"":""Amarillo"",""llantas"":""Dollar"",""polarizados"":""Dark Smoke"",""motores"":""Mejora nivel 1"",""idURL"":""Bling Bling""}", "");
+INSERT INTO compartir VALUES("AOK", "{""colores"":""Azul"",""llantas"":""Shadow"",""polarizados"":""Ninguno"",""motores"":""Mejora nivel 1"",""idURL"":""AOK""}", 0);
+INSERT INTO compartir VALUES("Big Smoke", "{""colores"":""Verde"",""llantas"":""Flare"",""polarizados"":""Light Smoke"",""motores"":""Mejora nivel 3"",""idURL"":""Big Smoke""}", 0);
+INSERT INTO compartir VALUES("Crimson Fury", "{""colores"":""Rojo"",""llantas"":""Slit Six"",""polarizados"":""Limo"",""motores"":""Mejora nivel 4"",""idURL"":""Crimson Fury""}", 0);
+INSERT INTO compartir VALUES("Bling Bling", "{""colores"":""Amarillo"",""llantas"":""Dollar"",""polarizados"":""Dark Smoke"",""motores"":""Mejora nivel 1"",""idURL"":""Bling Bling""}", 0);
