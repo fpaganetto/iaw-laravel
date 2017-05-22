@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.adderlayout')
 
 @section('content')
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -7,7 +7,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
+            <div class="panel panel-default panel-login">
                 <div class="panel-heading">Login</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
@@ -53,7 +53,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-block btn-social">
+                                <button type="submit" class="btn btn-block btn-social btn-success">
                                     Login
                                 </button>
 
@@ -65,9 +65,9 @@
                                 <span class="fa fa-github"></span> Iniciar con Github
                                 </a>
 
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                {{-- <a class="btn btn-link" href="{{ route('password.request') }}">
                                     Forgot Your Password?
-                                </a>
+                                </a> --}}
                             </div>
                         </div>
                     </form>
