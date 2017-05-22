@@ -55,8 +55,7 @@
                     <td>
                     	{{ $e->valor }}
                         <input type="hidden" name="categoria" value={{$nombre}}>
-                        <button type="submit" data-lala="value2" 
-                        name = "eliminar" value= '{{$e->valor}}' class="btn btn-danger pull-right">
+                        <button type="submit" name = "eliminar" value= '{{$e->valor}}' class="btn btn-danger pull-right">
                         Eliminar</button>
                         
                         <a href="/editarElemento/{{$nombre}}/{{$e->valor}}"
@@ -71,6 +70,28 @@
     </div>
     {!! Form::close() !!}
    @endforeach
+
+   <hr>
+
+   <!-- Precargados -->
+   {!! Form::open(['url' => 'precargado']) !!}
+            <div class= "form-group">
+                {!! Form::label('url','Url del precargado: ') !!}
+                {!! Form::text('url', null, ['class' => 'form-control ']) !!}
+
+                {!! Form::label('nombre','Nuevo nombre: ') !!}
+                {!! Form::text('nombre', null, ['class' => 'form-control ']) !!}
+            </div>
+
+            <div class= "form-group">
+                <button type="submit" name = "comando" value= 'agregar' class="btn btn-success">
+                Agregar</button>                
+
+                <button type="submit" name = "comando" value= 'eliminar' class="btn btn-danger">
+                Eliminar</button>
+            </div>
+   {!! Form::close() !!}
+    <hr>
 
 </div>
 </body>

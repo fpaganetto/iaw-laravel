@@ -82,3 +82,4 @@ Route::post('/editarCategoria','ABMController@editarCategoria')->middleware('adm
 Route::post('/editarElemento','ABMController@editarElemento')->middleware('admin');
 
 Route::get('/precargados','PrecargadosController@json');
+Route::post('/precargado','ABMController@precargado')->middleware('admin');

@@ -75,9 +75,6 @@ class ABMController extends Controller{
     	return Redirect::to('admin');
     }
 
-    /**
-     XXX Falta renombrar el archivo
-    */
     public function editarElemento(){
         $categoria = Request::get('categoria');
         $nombreViejo = Request::get('nombreViejo');
@@ -91,9 +88,6 @@ class ABMController extends Controller{
         return Redirect::to('admin');
     }
 
-    /**
-     XXX Falta renombrar el directorio
-    */
     public function editarCategoria(){
         $categoriaViejo = Request::get('categoriaViejo');
         $categoriaNuevo = Request::get('categoriaNuevo');
@@ -102,6 +96,24 @@ class ABMController extends Controller{
         Schema::rename($categoriaViejo, $categoriaNuevo);
 
         rename('app/img/'.$categoriaViejo, 'app/img/'.$categoriaNuevo);
+
+        return Redirect::to('admin');
+    }
+
+    public function precargado(){
+        //dd(Request::all());
+
+        $url = Request::get('url');
+        $nombre = Request::get('nombre');
+        $comando = Request::get('comando');
+
+        if($comando == 'agregar' && $nombre!=null){
+            //Debo poner el usuario de ese compartido en 0
+            DB::table('compartir')->where('idURL', $url)->update(['idUrl' => $nombre,'idUser' => '0']);
+        }
+        else if($comando == 'eliminar'){
+            DB::table("compartir")->where('idURL',$url)->delete();
+        }
 
         return Redirect::to('admin');
     }
