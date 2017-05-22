@@ -89,9 +89,9 @@ html,body {
   border-radius: 0px;
 }*/
 
-.panel-default{
+/*.panel-default{
   border-radius: 0px;
-}
+}*/
 
 .sin-margenes {
   margin: 0px;
@@ -217,4 +217,8 @@ dt {
 }
 .btn-cargar:active{
   background-color: #eabb00;
+}
+
+.panel-login{
+  margin-top: 40px;
 }

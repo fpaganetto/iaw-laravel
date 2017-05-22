@@ -54,3 +54,8 @@ html,body{
   color: white;
   background-color: black;
 }
+
+.panel-login{
+  background-color: rgba(10, 10, 10, 0.5);
+  color: white;
+}

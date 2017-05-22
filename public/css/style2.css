@@ -43,3 +43,8 @@ html,body{
   color: black;
   background-color: white;
 }
+
+.panel-login{
+  background-color: rgba(245, 245, 245, 0.5);
+  color: black;
+}
