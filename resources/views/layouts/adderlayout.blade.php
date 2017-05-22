@@ -62,7 +62,7 @@
                           </form>
                         </li>
                         @else
-                            <li><a href="{{ url('/login') }}">MI ADDER</a></li>
+                            <li><a href="{{ url('/login') }}">LOGIN</a></li>
                             <li><a href="{{ url('/register') }}">REGISTRARSE</a></li>
                         @endif
                      </ul>

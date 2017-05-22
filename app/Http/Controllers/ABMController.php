@@ -74,19 +74,6 @@ class ABMController extends Controller{
     }
 
     /**
-    Retorna una vista donde se muestra un menu para editar un elemento
-    **/
-    public function editarElementoVista($categoria, $elemento){
-        return view('admin/editarElemento', ['categoria' => $categoria, 'elemento' => $elemento]);
-    }
-    /**
-    Retorna una vista donde se muestra un menu para editar la categoría
-    **/
-    public function editarCategoriaVista($categoria){
-        return view('admin/editarCategoria', ['categoria' => $categoria]);
-    }
-
-    /**
      XXX Falta renombrar el archivo
     */
     public function editarElemento(){
