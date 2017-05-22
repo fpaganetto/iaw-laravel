@@ -80,6 +80,8 @@ class ABMController extends Controller{
         $categoria = Request::get('categoria');
         $nombreViejo = Request::get('nombreViejo');
         $nombreNuevo = Request::get('nombreNuevo');
+
+        
         DB::table($categoria)->where('valor', $nombreViejo)->update(['valor' => $nombreNuevo]);
 
         //XXX

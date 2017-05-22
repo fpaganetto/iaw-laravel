@@ -8,8 +8,8 @@
 	<div class="container col-lg-6 col-lg-offset-3">
 		<h1>Editando elemento {{$categoria}} -> <strong> {{$elemento}}</strong></h1>
 		{!! Form::open(['url' => 'editarElemento']) !!}
-			<input type="hidden" name="categoria" value={{$categoria}}>
-			<input type="hidden" name="nombreViejo" value={{$elemento}}>
+			<input type="hidden" name="categoria" value='{{$categoria}}'>
+			<input type="hidden" name="nombreViejo" value='{{$elemento}}'>
 
 			<div class= "form-group">
 				{!! Form::label('nombre','Reemplazar nombre: ') !!}
