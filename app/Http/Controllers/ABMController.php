@@ -13,7 +13,7 @@ use Redirect;
 class ABMController extends Controller{
     public function eliminarCategoria(){
     	$nombre = Request::get('eliminar');
-		
+
 		DB::table("personalizables")->where('tablas', '=', $nombre)->delete();
 		Schema::dropIfExists($nombre);
 
@@ -24,7 +24,7 @@ class ABMController extends Controller{
 
     	$categoria = Request::get('categoria');
     	$nombre = Request::get('eliminar');
-		
+
 		DB::table($categoria)->where('valor', '=', $nombre)->delete();
 
 		return Redirect::to('admin');
@@ -34,7 +34,7 @@ class ABMController extends Controller{
     	try{
 	    	//$input = Request::all();
 	    	$nombre = Request::get('nombre');
-	    	
+
 	    	DB::table('personalizables')->insert(['tablas' => $nombre]);
 
 	    	//Se crea la tabla donde se guardan dichos elementos
@@ -45,7 +45,7 @@ class ABMController extends Controller{
 
 	        //Vuelve a la pagina de admin
 	    	return Redirect::to('admin');
-	    
+
 	    }catch(\Illuminate\Database\QueryException $e){
 	    	//Caso en que por ejemplo exista la tabla o la categoria declarada en la tabla de personalizables
 	    	return Redirect::to('admin');
@@ -56,14 +56,16 @@ class ABMController extends Controller{
     	return view('admin/crearElemento', ['categoria' => $categoria]);
     }
 
-    public function crearElemento(){
+    public function crearElemento(Request $request){
     	//if(Input::hasFile('file')){ XXX
-    		$file_content = Request::get('file');
+    		//$file_content = Request::get('image');
+    		$file_content = Input::file('image');
     		$categoria = Request::get('categoria');
     		$nombreNuevo = Request::get('nombre');
-
+        $path = "app/img/".$categoria."/";
     		//Guarda el archivo
-    		Storage::disk('app')->put($nombreNuevo.".png", $file_content);
+    		//Storage::disk($path)->put($nombreNuevo.".png", $file_content);
+        $file_content->move($path , $nombreNuevo.".png");
 
     		//Agrega en la bd el elemento nuevo
     		DB::table($categoria)->insert(['valor' => $nombreNuevo]);
@@ -81,7 +83,7 @@ class ABMController extends Controller{
         $nombreViejo = Request::get('nombreViejo');
         $nombreNuevo = Request::get('nombreNuevo');
 
-        
+
         DB::table($categoria)->where('valor', $nombreViejo)->update(['valor' => $nombreNuevo]);
 
         //XXX
@@ -96,7 +98,7 @@ class ABMController extends Controller{
     public function editarCategoria(){
         $categoriaViejo = Request::get('categoriaViejo');
         $categoriaNuevo = Request::get('categoriaNuevo');
-        
+
         DB::table("personalizables")->where('tablas', $categoriaViejo)->update(['tablas' => $categoriaNuevo]);
         Schema::rename($categoriaViejo, $categoriaNuevo);
 
