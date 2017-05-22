@@ -48,8 +48,8 @@
     </div>
 
     <div class="container main-content">
-      
-      <div class ="row" id="precargados"><!-- precargados -->
+
+      <div class ="row"><!-- precargados -->
         <div class ="col-lg-4">
 
           <ol class="breadcrumb breadcrumb-precargados">
@@ -57,11 +57,11 @@
               <h3 class="panel-title">Modelos Precargados</h3>
             </div>
             <div class="panel-body">
-              <div class="btn-group" role="group" aria-label="">
-                <a href="/compartido/AOK" type="button" class="btn btn-default">AOK</a>
+              <div class="btn-group" role="group" aria-label="" id="precargados">
+              <!--  <a href="/compartido/AOK" type="button" class="btn btn-default">AOK</a>
                 <a href="/compartido/Big Smoke" type="button" class="btn btn-default">Big Smoke</a>
                 <a href="/compartido/Crimson Fury" type="button" class="btn btn-default">Crimson Fury</a>
-                <a href="/compartido/Bling Bling" type="button" class="btn btn-default">Bling Bling</a>
+                <a href="/compartido/Bling Bling" type="button" class="btn btn-default">Bling Bling</a> -->
               </div>
             </div>
           </ol>

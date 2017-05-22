@@ -17,6 +17,7 @@ request.onload = function() { //lo que ocurre al recibir la respuesta del servid
     ctx.drawImage(imageObj, 0, 0, canvas.width, canvas.height);
     cargarOpciones(jsonOpciones);
     cargarRecordado();
+    cargarPrecargados();
   };
   imageObj.src = "app/img/cero.png";
 }
@@ -303,7 +304,27 @@ function crearAlertaCompartir(idURL){
   $('#alert-compartir').html('<div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>¡Listo!</strong> Copia este enlace para compartir con tus amigos! <u>'+window.location.hostname+window.location.pathname+'compartido/'+idURL+'</u></div>');
 }
 
+function cargarPrecargados() {
+  $.ajax({
+    type:'GET',
+    url:'/precargados',
+    success:function(data) {
+      console.log("precargados:");
+      console.log(data);
+      for (i = 0; i < data.length; i++) {
+        var nombre = data[i].idURL;
+        console.log(nombre);
 
+        var nombreOpcion = document.createElement("a");
+        nombreOpcion.setAttribute("class", "btn btn-default");
+        nombreOpcion.setAttribute("type", "button");
+        nombreOpcion.setAttribute("href", "/compartido/"+nombre);
+        nombreOpcion.innerHTML = nombre;
+        $("#precargados").append(nombreOpcion);
+      }
+    }
+  })
+}
 
 
 // ### fuente: https://gist.github.com/gordonbrander/2230317#file-id-js
