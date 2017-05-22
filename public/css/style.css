@@ -222,3 +222,11 @@ dt {
 .panel-login{
   margin-top: 40px;
 }
+
+.breadcrumb-precargados{
+  padding: 0px;
+}
+
+.panel-body{
+  padding: 5px;
+}
