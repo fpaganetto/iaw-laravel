@@ -57,7 +57,7 @@ class ABMController extends Controller{
     }
 
     public function crearElemento(){
-    	if(Input::hasFile('file')){
+    	//if(Input::hasFile('file')){ XXX
     		$file_content = Request::get('file');
     		$categoria = Request::get('categoria');
     		$nombreNuevo = Request::get('nombre');
@@ -67,10 +67,10 @@ class ABMController extends Controller{
 
     		//Agrega en la bd el elemento nuevo
     		DB::table($categoria)->insert(['valor' => $nombreNuevo]);
-    	}
-    	else dd("No hay archivo");
+    	//}
+    	//else dd("No hay archivo");
 
-    	//return Redirect::to('admin');
+    	return Redirect::to('admin');
     }
 
     /**
@@ -94,6 +94,9 @@ class ABMController extends Controller{
         $nombreViejo = Request::get('nombreViejo');
         $nombreNuevo = Request::get('nombreNuevo');
         DB::table($categoria)->where('valor', $nombreViejo)->update(['valor' => $nombreNuevo]);
+
+        //XXX
+        //Storage::move('/public/app/img/'.$categoria.'/'.$nombreViejo.'.png', '/public/app/img/'.$categoria.'/'.$nombreNuevo.'.png');
 
         return Redirect::to('admin');
     }

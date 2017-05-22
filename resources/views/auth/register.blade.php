@@ -69,11 +69,11 @@
                                     Register
                                 </button>
 
-                                <a class="btn btn-block btn-social btn-facebook" href="{{ url('/redirect/facebook') }}"">
+                                <a class="btn btn-block btn-social btn-facebook" href="{{ url('/redirect/facebook') }}">
                                 <span class="fa fa-facebook"></span> Iniciar con Facebook
                                 </a>
 
-                                <a class="btn btn-block btn-social btn-github" href="{{ url('/redirect/github') }}"">
+                                <a class="btn btn-block btn-social btn-github" href="{{ url('/redirect/github') }}">
                                 <span class="fa fa-github"></span> Iniciar con Github
                                 </a>
 
