@@ -86,8 +86,7 @@ class ABMController extends Controller{
 
         DB::table($categoria)->where('valor', $nombreViejo)->update(['valor' => $nombreNuevo]);
 
-        //XXX
-        //Storage::move('/public/app/img/'.$categoria.'/'.$nombreViejo.'.png', '/public/app/img/'.$categoria.'/'.$nombreNuevo.'.png');
+        rename('app/img/'.$categoria.'/'.$nombreViejo.'.png', 'app/img/'.$categoria.'/'.$nombreNuevo.'.png');
 
         return Redirect::to('admin');
     }
@@ -101,6 +100,8 @@ class ABMController extends Controller{
 
         DB::table("personalizables")->where('tablas', $categoriaViejo)->update(['tablas' => $categoriaNuevo]);
         Schema::rename($categoriaViejo, $categoriaNuevo);
+
+        rename('app/img/'.$categoriaViejo, 'app/img/'.$categoriaNuevo);
 
         return Redirect::to('admin');
     }
