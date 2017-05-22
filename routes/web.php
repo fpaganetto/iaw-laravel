@@ -27,6 +27,10 @@ Route::get('/readme', function () {
     return view('readme');
 });
 
+Route::get('/autores', function () {
+    return view('autores');
+});
+
 Route::get('/personalizables','PersonalizablesController@json');
 Auth::routes();
 

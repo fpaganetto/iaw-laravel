@@ -77,9 +77,10 @@
     <div class="footer-bottom">
       <div class="container">
         <div class="row">
-          <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
               © 2017 Truffade Motors |
-              <a href="readme"> Readme </a>
+              <a href="readme"> Readme </a> |
+              <a href="autores"> Autores </a>
           </div>
           <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 pull-right">
              <div class="pull-right boton-estilo">
