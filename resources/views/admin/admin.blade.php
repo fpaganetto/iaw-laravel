@@ -56,7 +56,7 @@
                     	{{ $e->valor }}
                         <input type="hidden" name="categoria" value={{$nombre}}>
                         <button type="submit" data-lala="value2" 
-                        name = "eliminar" value= {{$e->valor}} class="btn btn-danger pull-right">
+                        name = "eliminar" value= '{{$e->valor}}' class="btn btn-danger pull-right">
                         Eliminar</button>
                         
                         <a href="/editarElemento/{{$nombre}}/{{$e->valor}}"
